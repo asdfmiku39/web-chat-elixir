@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>List of available rooms:</h3>
+      <ul id="room-list" class="row" style="list-style: none"></ul>
+    </div>
+    <div class="col">
+      <form action="/rooms" method="post">
+        <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
+        <div class="row">
+          <div class="col-sm-4" style="margin:5px">
+            <input type="text" class="form-control" 
+              id="nickname" 
+              name="room[nickname]"  
+              placeholder="Your name" 
+              aria-label="Large"
+              required="required" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4" style="margin:5px">
+            <input type="text" class="form-control"
+              id="roomname" 
+              name="room[roomname]"  
+              placeholder="Name of room" 
+              aria-label="Large"
+              required="required" />
+          </div>
+        </div>
+        <div class="actions input-group input-group-lg" style="margin: 5px">
+          <input class="btn btn-secondary btn-lg " 
+            type="submit" 
+            value="Start chatting" 
+            id="button" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="<%= static_path(@conn, "/js/home.js") %>"></script>
